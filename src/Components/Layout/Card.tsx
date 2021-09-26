@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions, Text } from 'react-native';
 import { COLOR_SCHEME } from '../../utils/Constants';
 
 const { width } = Dimensions.get('screen');
-const defaultHeight = 150;
+const defaultHeight = 90;
 
 type CardProps = {
   title?: string;
@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <View style={[styles.mainView, { height: customHeight }]}>
-      <Text style={styles.titleText}>{title ? `${title}:` : ''}</Text>
+      {title && <Text style={styles.titleText}>{title}</Text>}
       <View style={styles.componentView}>{children}</View>
     </View>
   );
@@ -25,19 +25,25 @@ const Card: React.FC<CardProps> = ({
 
 const styles = StyleSheet.create({
   mainView: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: width,
     backgroundColor: COLOR_SCHEME.black,
-    padding: 20,
+    padding: 15,
   },
   titleText: {
+    flex: 3,
+    height: '90%',
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    marginBottom: 10,
+    textAlign: 'left',
+    textAlignVertical: 'center',
     color: 'white',
     fontSize: 20,
   },
   componentView: {
+    flex: 7,
     justifyContent: 'center',
     alignItems: 'center',
   },

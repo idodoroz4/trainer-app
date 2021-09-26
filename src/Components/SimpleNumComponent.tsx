@@ -22,8 +22,8 @@ const SimpleNumComponent: React.FC<SimpleNumComponentProps> = ({
   onDown,
   onUp,
   onChange,
-  btnSize = 40,
-  fontSize = 50,
+  btnSize = 30,
+  fontSize = 40,
 }) => {
   const [val, setVal] = React.useState(number);
 
@@ -68,7 +68,7 @@ const SimpleNumComponent: React.FC<SimpleNumComponentProps> = ({
 
 const styles = StyleSheet.create({
   componentView: {
-    width: '85%',
+    width: '100%',
     height: '90%',
     justifyContent: 'center',
     alignItems: 'center',

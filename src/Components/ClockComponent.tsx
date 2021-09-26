@@ -36,8 +36,8 @@ const ClockComponent: React.FC<ClockComponentProps> = ({
 
 const styles = StyleSheet.create({
   componentView: {
-    width: '85%',
-    height: '80%',
+    width: '100%',
+    height: '90%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

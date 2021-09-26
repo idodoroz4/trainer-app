@@ -23,6 +23,7 @@ import { WORKOUTS_PATH } from '../../utils/Constants';
 import CounterWorkout from '../../workouts/CounterWorkout';
 import { SettingsRules } from '../HomeScreen';
 import { addToSavedWorkouts } from '../../redux/workoutsSlice';
+import Divider from '../../Components/Divider';
 
 const CounterWorkoutScreen: React.FC<CounterProps> = ({
   navigation,
@@ -177,13 +178,13 @@ const CounterWorkoutScreen: React.FC<CounterProps> = ({
           )
         }
       />
-
+      <Divider />
       <ClockComponent
-        title="Rest Time"
+        title="Rest"
         seconds={restSecs}
         onSecondsChange={setRestSecs}
       />
-
+      <Divider />
       <NumberComponent
         title="Rounds"
         number={rounds}
@@ -193,7 +194,7 @@ const CounterWorkoutScreen: React.FC<CounterProps> = ({
           onNumberChange(newValue, setRounds, roundsMin, roundsMax)
         }
       />
-
+      <Divider />
       <NumberComponent
         title="Speed (sec)"
         number={speed}
