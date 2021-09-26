@@ -14,7 +14,7 @@ const SelectSoundsComponent: React.FC<SelectSoundsComponentProps> = ({
   navigateToSoundPicker,
 }) => {
   return (
-    <Card>
+    <View style={styles.componentView}>
       <TouchableOpacity
         onPress={navigateToSoundPicker}
         style={styles.btnStyle}
@@ -28,11 +28,15 @@ const SelectSoundsComponent: React.FC<SelectSoundsComponentProps> = ({
           />
         </View>
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  componentView: {
+    marginHorizontal: '10%',
+    marginTop: '5%',
+  },
   btnText: {
     fontSize: 25,
     color: COLOR_SCHEME.white,

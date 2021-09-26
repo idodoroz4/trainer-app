@@ -21,6 +21,7 @@ import { WORKOUTS_PATH } from '../../utils/Constants';
 import IntervalWorkout from '../../workouts/IntervalWorkout';
 import { SettingsRules } from '../HomeScreen';
 import { addToSavedWorkouts } from '../../redux/workoutsSlice';
+import Divider from '../../Components/Divider';
 
 const IntervalWorkoutScreen: React.FC<IntervalWorkoutProps> = ({
   route,
@@ -133,15 +134,17 @@ const IntervalWorkoutScreen: React.FC<IntervalWorkoutProps> = ({
         <WorkoutNameInput onSubmit={isWorkoutExists} />
       )}
       <ClockComponent
-        title="Interval Time"
+        title="Workout"
         seconds={intervalSecs}
         onSecondsChange={setIntervalSecs}
       />
+      <Divider />
       <ClockComponent
-        title="Rest Time"
+        title="Rest"
         seconds={restSecs}
         onSecondsChange={setRestSecs}
       />
+      <Divider />
       <NumberComponent
         title="Rounds"
         number={rounds}

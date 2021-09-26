@@ -15,7 +15,7 @@ const ButtonGroupComponent: React.FC<ButtonGroupComponentProps> = ({
   }
 
   return (
-    <Card title={title}>
+    <Card>
       <ButtonGroup
         onPress={(idx) => onChange(labelArr[idx])}
         selectedIndex={labelArr.indexOf(value)}
@@ -32,7 +32,7 @@ const ButtonGroupComponent: React.FC<ButtonGroupComponentProps> = ({
 const styles = StyleSheet.create({
   componentView: {
     width: '90%',
-    height: '70%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
   ButtonStyle: {
     backgroundColor: COLOR_SCHEME.orange,
     borderRadius: 8,
+    margin: 5,
   },
   ButtonText: {
     color: COLOR_SCHEME.black,

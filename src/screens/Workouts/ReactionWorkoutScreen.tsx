@@ -26,6 +26,8 @@ import ReactionWorkout from '../../workouts/ReactionWorkout';
 import SpeedRange from '../../Components/SpeedRangeComponent';
 import { SettingsRules } from '../HomeScreen';
 import { addToSavedWorkouts } from '../../redux/workoutsSlice';
+import Divider from '../../Components/Divider';
+import { View } from 'react-native';
 
 const ReactionWorkoutScreen: React.FC<CounterProps> = ({
   navigation,
@@ -220,6 +222,7 @@ const ReactionWorkoutScreen: React.FC<CounterProps> = ({
         ]}
         value={mode}
       />
+      <Divider />
 
       {mode === ReactionModes.Counter && (
         <NumberComponent
@@ -269,13 +272,14 @@ const ReactionWorkoutScreen: React.FC<CounterProps> = ({
           onSecondsChange={setTimerSecs}
         />
       )}
+      <Divider />
 
       <ClockComponent
-        title="Rest Time"
+        title="Rest"
         seconds={restSecs}
         onSecondsChange={setRestSecs}
       />
-
+      <Divider />
       <NumberComponent
         title="Rounds"
         number={rounds}
@@ -285,48 +289,11 @@ const ReactionWorkoutScreen: React.FC<CounterProps> = ({
           onNumberChange(newValue, setRounds, roundsMin, roundsMax)
         }
       />
-
-      <SpeedRange
-        title="Speed Range (sec)"
-        slowSpeed={`${slowSpeed}`}
-        fastSpeed={`${fastSpeed}`}
-        onSlowDown={() =>
-          onNumberDownString(
-            setSlowSpeed,
-            slowSpeed,
-            parseFloat(fastSpeed),
-            speedDelta,
-            true,
-          )
-        }
-        onSlowUp={() =>
-          onNumberUpString(
-            setSlowSpeed,
-            slowSpeed,
-            slowestSpeed,
-            speedDelta,
-            true,
-          )
-        }
-        onSlowChange={(newValue) =>
-          onNumberChangeString(
-            newValue as string,
-            setSlowSpeed,
-            parseFloat(fastSpeed),
-            slowestSpeed,
-            true,
-          )
-        }
-        onFastDown={() =>
-          onNumberDownString(
-            setFastSpeed,
-            fastSpeed,
-            fastestSpeed,
-            speedDelta,
-            true,
-          )
-        }
-        onFastUp={() =>
+      <Divider />
+      <NumberComponent
+        title="Fast Speed"
+        number={`${fastSpeed}`}
+        onUp={() =>
           onNumberUpString(
             setFastSpeed,
             fastSpeed,
@@ -335,7 +302,16 @@ const ReactionWorkoutScreen: React.FC<CounterProps> = ({
             true,
           )
         }
-        onFastChange={(newValue) =>
+        onDown={() =>
+          onNumberDownString(
+            setFastSpeed,
+            fastSpeed,
+            fastestSpeed,
+            speedDelta,
+            true,
+          )
+        }
+        onChange={(newValue) =>
           onNumberChangeString(
             newValue as string,
             setFastSpeed,
@@ -346,12 +322,47 @@ const ReactionWorkoutScreen: React.FC<CounterProps> = ({
         }
       />
 
+      <NumberComponent
+        title="Slow Speed"
+        number={`${slowSpeed}`}
+        onUp={() =>
+          onNumberUpString(
+            setSlowSpeed,
+            slowSpeed,
+            slowestSpeed,
+            speedDelta,
+            true,
+          )
+        }
+        onDown={() =>
+          onNumberDownString(
+            setSlowSpeed,
+            slowSpeed,
+            parseFloat(fastSpeed),
+            speedDelta,
+            true,
+          )
+        }
+        onChange={(newValue) =>
+          onNumberChangeString(
+            newValue as string,
+            setSlowSpeed,
+            parseFloat(fastSpeed),
+            slowestSpeed,
+            true,
+          )
+        }
+      />
+
       {mode !== 'Counter' && (
-        <SelectSoundsComponent
-          navigateToSoundPicker={() =>
-            navigation.navigate('SoundsPicker', { sounds })
-          }
-        />
+        <View>
+          <Divider />
+          <SelectSoundsComponent
+            navigateToSoundPicker={() =>
+              navigation.navigate('SoundsPicker', { sounds })
+            }
+          />
+        </View>
       )}
 
       <StartButton

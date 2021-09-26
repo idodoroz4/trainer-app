@@ -13,7 +13,7 @@ const ClockViewer: React.FC<ClockViewerProps> = ({ seconds }) => {
 
 const styles = StyleSheet.create({
   clockText: {
-    fontSize: 50,
+    fontSize: 40,
     color: COLOR_SCHEME.white,
   },
 });
