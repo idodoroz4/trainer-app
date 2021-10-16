@@ -51,15 +51,25 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   useEffect(() => {
     if (savedWorkouts.length === 0) {
       getAllSavedWorkouts()
-        .then((workouts) => {
-          const validWorkouts: WorkoutSimpleObject[] = [];
-          workouts.forEach((w) => {
-            const workout = createWorkout(JSON.parse(w));
-            if (workout && workout.isValid()) {
-              validWorkouts.push(JSON.parse(JSON.stringify(workout)));
-            }
-          });
-          dispatch(setSavedWorkouts(validWorkouts));
+        .then((workouts: (string | null)[] | null) => {
+          if (workouts) {
+            const validWorkouts: WorkoutSimpleObject[] = [];
+            workouts.forEach((w) => {
+              if (w) {
+                try {
+                  const workout = createWorkout(JSON.parse(w));
+                  if (workout) {
+                    validWorkouts.push(
+                      JSON.parse(JSON.stringify(workout)),
+                    );
+                  }
+                } catch {
+                  console.log(`parsing workout: ${w} failed`);
+                }
+              }
+            });
+            dispatch(setSavedWorkouts(validWorkouts));
+          }
         })
         .catch(() => null);
     }
