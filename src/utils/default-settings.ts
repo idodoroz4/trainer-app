@@ -15,7 +15,7 @@ export const settings: { [key: string]: any } = {
     endRoundSound: {
       type: SettingsType.SOUND,
       preview: 'End round sound',
-      value: 'kyai.mp3',
+      value: 'longBeep.mp3',
     },
     speedDelta: {
       type: SettingsType.SECONDS,

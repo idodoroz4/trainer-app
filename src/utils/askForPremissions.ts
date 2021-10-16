@@ -31,9 +31,9 @@ export const askForPremissions = async () => {
           PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log('You can use the camera');
+          console.log('You can use the recording device now');
         } else {
-          console.log('camera permission denied');
+          console.log('recording device permission denied');
           return;
         }
       }
