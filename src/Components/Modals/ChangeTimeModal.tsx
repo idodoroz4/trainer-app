@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { WheelPicker } from 'react-native-wheel-picker-android';
+import NumberScroller from '../NumberScroller';
 
 const data = [...Array(60).keys()].map((k) =>
   k < 10 ? `0${k}` : `${k}`,
@@ -39,32 +39,14 @@ const ChangeTimeModal: React.FC<ChangeTimeModalProps> = (props) => {
       <View style={styles.content}>
         <Text style={styles.contentTitle}>{title}</Text>
         <View style={styles.timePicker}>
-          <WheelPicker
-            isCyclic
-            selectedItem={newMinutes}
-            onItemSelected={setNewMinutes}
-            data={data}
-            itemTextFontFamily="Arial"
-            selectedItemTextFontFamily="Arial"
-            selectedItemTextColor={COLOR_SCHEME.orange}
-            selectedItemTextSize={32}
-            itemTextSize={32}
-            itemTextColor={COLOR_SCHEME.white}
-            indicatorColor={COLOR_SCHEME.orange}
+          <NumberScroller
+            startValue={newMinutes}
+            setValue={setNewMinutes}
           />
           <Text style={styles.twoDots}>:</Text>
-          <WheelPicker
-            isCyclic
-            selectedItem={newSeconds}
-            onItemSelected={setNewSeconds}
-            data={data}
-            itemTextFontFamily="Arial"
-            selectedItemTextFontFamily="Arial"
-            selectedItemTextColor={COLOR_SCHEME.orange}
-            selectedItemTextSize={32}
-            itemTextSize={32}
-            itemTextColor={COLOR_SCHEME.white}
-            indicatorColor={COLOR_SCHEME.orange}
+          <NumberScroller
+            startValue={newSeconds}
+            setValue={setNewSeconds}
           />
         </View>
         <View style={styles.buttons}>
@@ -109,7 +91,7 @@ const styles = StyleSheet.create({
   },
   twoDots: {
     fontSize: 50,
-    marginTop: 75,
+    marginTop: 50,
     color: COLOR_SCHEME.white,
   },
   buttonText: {

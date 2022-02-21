@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { COLOR_SCHEME } from '../utils/Constants';
-import Card from './Layout/Card';
-import { ScrollContext } from './Wrapper';
+import { COLOR_SCHEME } from '../../utils/Constants';
+import Card from '../Layout/Card';
+import { ScrollContext } from '../Wrapper';
 import { TextInput } from 'react-native';
 import RangeSlider from 'rn-range-slider';
 

@@ -13,6 +13,7 @@ import SoundsPicker from './src/screens/SoundsPicker';
 import LoadWorkoutScreen from './src/screens/WorkoutPicker';
 import SettingPage from './src/screens/settings';
 import FlashMessage from 'react-native-flash-message';
+import TestPlayground from './src/screens/TestPlayground';
 
 const Stack = createStackNavigator();
 export default class App extends React.PureComponent {
@@ -47,6 +48,10 @@ export default class App extends React.PureComponent {
             <Stack.Screen
               name="WorkoutPicker"
               component={LoadWorkoutScreen}
+            />
+            <Stack.Screen
+              name="TestPlayground"
+              component={TestPlayground}
             />
           </Stack.Navigator>
           <FlashMessage
