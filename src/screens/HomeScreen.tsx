@@ -11,7 +11,7 @@ import {
 } from '../utils/default-settings';
 import { setup } from '../utils/setup';
 import { getAllSavedWorkouts } from '../storage/workouts';
-import { WorkoutSimpleObject, WorkoutType } from '../utils/types';
+import { WorkoutSimpleObject } from '../utils/types';
 import { setSettings } from '../redux/settingsSlice';
 import { setSavedWorkouts } from '../redux/workoutsSlice';
 
@@ -93,6 +93,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             text="Reaction"
             action={() => navigate('Reaction')}
           />
+          {/* <HomeScreenBtn
+            text="test"
+            action={() => navigate('TestPlayground')}
+          /> */}
         </View>
       </Wrapper>
     </SettingsRules.Provider>
