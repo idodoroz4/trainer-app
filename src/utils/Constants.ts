@@ -15,6 +15,8 @@ export const COLOR_SCHEME: { [key: string]: string } = {
   grey: '#686868',
 };
 
-export const SOUNDS_PATH = '/storage/emulated/0/TrainMe/Sounds/App/';
+export const SOUNDS_PATH =
+  '/storage/emulated/0/Documents/TrainMe/Sounds/App/';
 export const WORKOUTS_PATH =
-  '/storage/emulated/0/TrainMe/Saved_Workouts';
+  '/storage/emulated/0/Documents/TrainMe/workouts';
+// '/storage/emulated/0/TrainMe/Saved_Workouts';
