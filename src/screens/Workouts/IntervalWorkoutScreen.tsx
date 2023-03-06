@@ -84,6 +84,7 @@ const IntervalWorkoutScreen: React.FC<IntervalWorkoutProps> = ({
       rounds,
     );
 
+    console.log('JSON.stringify(ws)', JSON.stringify(ws));
     saveWorkout(JSON.stringify(ws), ws.name as string)
       .then(() => {
         dispatch(addToSavedWorkouts(JSON.parse(JSON.stringify(ws))));

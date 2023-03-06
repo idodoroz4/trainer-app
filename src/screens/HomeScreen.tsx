@@ -14,6 +14,7 @@ import { getAllSavedWorkouts } from '../storage/workouts';
 import { WorkoutSimpleObject } from '../utils/types';
 import { setSettings } from '../redux/settingsSlice';
 import { setSavedWorkouts } from '../redux/workoutsSlice';
+import { checkReadExternalStoragePrem } from '../utils/askForPremissions';
 
 export const SettingsRules = React.createContext(settingsConstraints);
 
@@ -32,6 +33,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   );
 
   setup();
+  checkReadExternalStoragePrem();
 
   useEffect(() => {
     if (isEmpty(trainerSettings)) {
